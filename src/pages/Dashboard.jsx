@@ -1,10 +1,11 @@
+import React from "react";
 import NavBar from "../components/NavBar";
 
-export default function Home() {
+export default function Dashboard() {
   return (
     <>
       <NavBar />
-      <h1>home</h1>
+      <div>Dashboard</div>
     </>
   );
 }
