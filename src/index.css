@@ -1,13 +1,389 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* body{
+  overflow: hidden;
+} */
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+:root {
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-color: var(--color-grey-grade10);
+  font-family: "Alata", sans-serif;
+  /* background-image: linear-gradient(to right, #9e31f1, #d32de4); */
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root {
+  --color-primary: #2874f0;
+  --color-background-primary: #faf3da;
+  --color-white: #f0f0f0;
+  --color-white-bg: #fff;
+  --color-black: #000;
+  --color-light-black: #172337;
+  --color-border-grey: #e4e7ed;
+  --color-brand-orange: #fb641b;
+  --color-brand-blue: #2874f0;
+  --color-brand-bbd: #2455f4;
+  --color-brand-refurb: #f2575b;
+  --color-brand-footer: #172337;
+  --color-brand-blue-lighter: #7accff;
+  --color-brand-blue-lighter1: #dfeafd;
+  --color-blue-lighter1: #b3d7ff;
+  --color-blue-lighter2: #2370f4;
+  --color-blue-lighter3: #2a55e5;
+  --color-blue-lighter4: #f5f7fa;
+  --color-blue-lighter5: #d5d7db;
+  --color-blue-lighter6: #cfe1ff;
+  --color-blue-lighter7: #f0f5ff;
+  --color-primary-yellow: #ffe11b;
+  --color-primary-yellow2: #f1d27d;
+  --color-yellow-grade1: #fff7e1;
+  --color-yellow-grade2: #fef8e0;
+  --color-purple: #5f4eeb;
+  --color-offer-green: #388e3c;
+  --color-green-grade0: #26a541;
+  --color-green-grade1: #e9f2e9;
+  --color-green-grade2: #e6f4e8;
+  --color-green-grade3: #e6f3e6;
+  --color-green-grade4: #008c00;
+  --color-yellowish-orange: #ff9f00;
+  --color-flash-green: #11c29b;
+  --color-error-red: #ff6161;
+  --color-error-red2: #ff4343;
+  --color-error-red3: #ffeaed;
+  --color-error-red4: #dd5354;
+  --color-error-red5: #d23276;
+  --color-error-red6: #e4001e;
+  --color-error-red7: #e32727;
+  --color-grey-grade0: #fafafa;
+  --color-grey-grade1: #f0f0f0;
+  --color-grey-grade2: #e0e0e0;
+  --color-grey-grade3: #c2c2c2;
+  --color-grey-grade4: #878787;
+  --color-grey-grade5: #212121;
+  --color-grey-grade6: #d7d7d7;
+  --color-grey-grade7: #f9f9f9;
+  --color-grey-grade8: #9e9e9e;
+  --color-grey-grade9: #efefef;
+  --color-grey-grade10: #f5f5f5;
+  --color-grey-grade11: #aaa;
+  --color-grey-grade12: #dbdbdb;
+  --color-grey-grade13: #fbfbfb;
+  --color-grey-grade14: #666;
+  --color-grey-grade15: #f8f8f8;
+  --color-grey-grade16: #eee;
+  --color-grey-grade17: #9b9b9b;
+  --color-grey-grade18: #686868;
+  --color-grey-grade19: #eaeaea;
+  --color-grey-grade20: #e6e6e6;
+  --color-grey-grade21: #e9e9e9;
+  --color-grey-grade22: #d8d8d8;
+  --color-grey-grade23: #ffcbd0;
+  --color-grey-grade24: #717478;
+  --color-grey-grade25: #111112;
+  --color-grey-grade26: #f0f2f5;
+  --color-grey-grade27: #e4e7ed;
+  --color-grey-grade28: #d5d7db;
+  --color-grey-grade29: #bdbdbd;
+  --color-greyish-blue: #b8bbbf;
+  --color-light-greyish-blue: #f1f3f5;
+  --color-error-bg: #fff7f8;
+  --color-info-bg: #ffffe6;
+  --color-info-light-bg: #fffbf6;
+  --color-page-bg: #f1f3f6;
+  --color-green-bg: #f7fffa;
+  --color-blue-bg: #f5faff;
+  --color-vip-black-bg: #343c4e;
+  --color-grey-badge: #717171;
+  --color-grey-light: #d3d3d3;
+  --color-grey-light2: #d5d7db;
+  --color-vendor-text: #3f3f3f;
+  --color-supermart-green: #26a541;
+  --color-dark-blue1: #1d6ded;
+  --color-light-blue: #f4f8ff;
+  --color-light-blue1: #bed5fa;
+  --color-light-blue2: #93b7f1;
+  --color-light-blue3: #f0f5ff;
+  --color-suparmart-fk-background: #258b3b;
+  --color-info-yellow: #fffdec;
+  --color-cobranded-footer-blue: #005387;
+  --color-pre-book-purple: #854987;
+  --color-light-pink: #fff0ff;
+  --color-light-orange: #fdf5e7;
+  --color-orange-bg: #fff7e1;
+  --color-bright-orange: #e79900;
+  --color-payment-orange: #ffc200;
+  --color-wishlist-red: #ff4343;
+  --color-light-green: #e7f8ec;
+  --color-selector-black: #010101;
+  --color-light-grey-orange: #fef7e9;
+  --color-mustard: #af7b1c;
+  --color-light-white-bg: #f5f7fa;
+  --header-width-min: 790px;
+  --width-min: 978px;
+  --width-max: 1680px;
+  --product-page-gutter: 24px;
+  --product-section-title-width: 110px;
+  --product-section-title-padding: 10px;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-size-8: 8px;
+  --font-size-10: 10px;
+  --font-size-11: 11px;
+  --font-size-12: 12px;
+  --font-size-13: 13px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-18: 18px;
+  --font-size-20: 20px;
+  --font-size-24: 24px;
+  --font-size-28: 28px;
+  --font-size-32: 32px;
+  --font-size-default: 14px;
+}
+button {
+  cursor: pointer;
+}
+
+/* Home page */
+
+/* Account creation */
+
+.create-acc-container {
+  height: 120vh;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 100px;
+
+  /* background-image: url("./assets/login-background1.jpg"); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.create-acc-container a {
+  text-decoration: none;
+}
+.section-part {
+  display: flex;
+  justify-content: left;
+}
+
+.logo-container {
+  background-color: #fff;
+
+  font-family: "Open Sans", sans-serif;
+}
+.account-creation-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "PT Sans", sans-serif;
+}
+.account-creation-form {
+  height: auto;
+  width: 40%;
+  border: 1px solid var(--color-border-grey);
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+.create-acc {
+  margin-bottom: 30px;
+}
+
+.create-acc h2 {
+  line-height: 30px;
+  font-weight: 400;
+  font-size: 24px;
+
+  display: inline;
+  padding: 5px;
+  text-transform: uppercase;
+  color: var(--color-grey-badge);
+}
+.create-acc p {
+  font-size: 14px;
+  color: var(--color-grey-grade11);
+  margin-top: 20px;
+}
+.create-acc span {
+  color: var(--color-blue-lighter3);
+  font-weight: 550;
+}
+.radio-box {
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid var(--color-border-grey);
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.option {
+  height: 80px;
+  background-color: var(--color-grey-grade0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.option button {
+  border: none;
+  padding: 10px;
+
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 200px;
+  border-radius: 5px;
+}
+.selected {
+  background-color: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+.not-selected {
+  background-color: transparent;
+}
+.input-form {
+  margin-top: 20px;
+}
+.name-box {
+  display: flex;
+  justify-content: space-between;
+}
+.name-box input {
+  width: 220px;
+  border-radius: 5px;
+  height: 40px;
+  border: 1px solid var(--color-border-grey);
+  padding: 10px;
+}
+.general-input {
+  width: 100%;
+}
+.general-input input {
+  width: 100%;
+  margin-top: 30px;
+  border-radius: 5px;
+  height: 40px;
+  border: 1px solid var(--color-border-grey);
+  padding: 10px;
+}
+.text-input:focus {
+  border: 2px solid var(--color-primary);
+  outline: none;
+}
+.register-btn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.register-btn button {
+  border: none;
+  background-color: var(--color-primary);
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+}
+.or {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+.sigin {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand-btn {
+  width: 200px;
+  border: 1px solid var(--color-border-grey);
+  height: 40px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: var(--color-grey-grade4);
+}
+.brand-btn:hover {
+  background-color: var(--color-blue-lighter4);
 }
