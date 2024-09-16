@@ -1,79 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { RotatingLines } from "react-loader-spinner";
-export default function Login() {
-  const formData = {
-    emailaddress: "",
-    password: "",
-  };
+import { UserContext } from "../provider/UserLoginProvider";
 
-  const [trigger, setTrigger] = useState(false);
-  const [loadder, setLodder] = useState(false);
-  const [loginData, SetLoginData] = useState(formData);
+import axios from "axios";
+
+export default function Login() {
+  // const context = useContext(UserContext);
+  const { login } = useContext(UserContext);
+  // const { setUserData, userData } = context;
+  const [emailaddress, setEmailaddress] = useState("");
+  const [password, setPassword] = useState("");
+  // const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  console.log(trigger);
-
-  const handleLogin = (e) => {
-    SetLoginData((data) => ({ ...data, [e.target.name]: e.target.value }));
-  };
+  // console.log(emailaddress,password);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setTrigger(true);
-    setLodder(true);
-    const { emailaddress, password } = loginData;
-    const body = { emailaddress, password };
-    const res = await fetch(
-      "https://careerconnect-server-zcqh.onrender.com/user/login",
-      {
-        method: "POST",
-        body: JSON.stringify(body),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await res.json();
+    const status = await login(emailaddress, password);
 
-    if (data.userLogin) {
-      setLodder(false);
-      const { userLogin } = data;
-      console.log(data.message);
-
+    if (status) {
       navigate("/");
-
-      console.log(data.userLogin);
-    } else {
-      console.log(data.message);
-    }
-    setTrigger(false);
-    setLodder(false);
-    try {
-    } catch (err) {
-      console.error(err.message);
     }
   };
 
-  if (loadder) {
-    return (
-      <div className="loader">
-        <RotatingLines
-          visible={true}
-          height="96"
-          width="96"
-          color="#faf3da"
-          strokeWidth="5"
-          strokeColor="#fdc600"
-          animationDuration="0.75"
-          ariaLabel="rotating-lines-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-        />
-      </div>
-    );
-  }
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.post("http://localhost:5000/users/login", {
+  //       emailaddress,
+  //       password,
+  //     });
+
+  //     const { userLogin } = await response.data;
+  //     if (userLogin) {
+  //       setUserData(userLogin);
+  //       console.log(userData);
+
+  //       navigate("/");
+  //     } else {
+  //       setError("Login failed. Please check your credentials.");
+  //     }
+  //   } catch (err) {
+  //     console.error(
+  //       "Login error:",
+  //       err.response ? err.response.data : err.message
+  //     );
+  //     setError("Login failed. Please check your credentials.");
+  //   }
+  // };
 
   return (
     <div className="create-acc-container">
@@ -82,12 +57,11 @@ export default function Login() {
           <div className="create-acc">
             <div className="section-part">
               <div>
-                {" "}
                 <h2>Login</h2>
                 <Link to={"/register"}>
                   <p>
-                    Don't have account?&nbsp;
-                    <span className="blue-italic">Create account</span>{" "}
+                    Don't have an account?&nbsp;
+                    <span className="blue-italic">Create account</span>
                   </p>
                 </Link>
               </div>
@@ -101,7 +75,7 @@ export default function Login() {
                 placeholder="Email Address"
                 className="text-input"
                 name="emailaddress"
-                onChange={handleLogin}
+                onChange={(e) => setEmailaddress(e.target.value)}
                 required
               />
             </div>
@@ -111,14 +85,14 @@ export default function Login() {
                 placeholder="Password"
                 className="text-input"
                 name="password"
-                onChange={handleLogin}
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </div>
-
+            {/* {error && <p className="error-message">{error}</p>}{" "} */}
+            {/* Display error message */}
             <div className="register-btn">
-              <button onClick={handleSubmit} disabled={trigger}>
-                Login
-              </button>
+              <button onClick={handleSubmit}>Login</button>
             </div>
           </div>
         </div>

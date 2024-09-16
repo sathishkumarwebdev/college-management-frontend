@@ -45,7 +45,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  background-color: var(--color-grey-grade10);
+
   font-family: "Alata", sans-serif;
   /* background-image: linear-gradient(to right, #9e31f1, #d32de4); */
 }
@@ -229,7 +229,8 @@ button {
   flex-direction: column;
   justify-content: center;
   padding-bottom: 100px;
-
+  background-color: #ffffff;
+  background-image: linear-gradient(315deg, #ffffff 0%, #5899e2 74%);
   /* background-image: url("./assets/login-background1.jpg"); */
   background-repeat: no-repeat;
   background-position: center;
@@ -260,7 +261,7 @@ button {
   border: 1px solid var(--color-border-grey);
   padding: 40px;
   background-color: #fff;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 3px rgba(7, 156, 243, 0.1);
 }
 .create-acc {
   margin-bottom: 30px;
@@ -393,7 +394,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color:var(--color-primary);
+  background-color: var(--color-primary);
   color: #fff;
   padding: 1rem;
 }
@@ -443,4 +444,182 @@ button {
   position: absolute;
   top: -0.5rem;
   right: -0.5rem;
+}
+
+/* home-container */
+
+.home-container {
+  height: 100vh;
+  /* background-image: url("../assets/bg.webp"); */
+}
+
+/* student */
+
+.student-container {
+  height: 100vh;
+}
+
+/* base conatiner */
+.title-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.base-container {
+  height: auto;
+
+  background: #fff;
+}
+
+.admin-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.admin-select-btn {
+  width: 150px;
+  height: 100px;
+  margin: 10px;
+  border: none;
+  background-color: #fff;
+  margin-top: 10px;
+  color: #717171;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.admin-select-btn:hover {
+  background-color: var(--color-purple);
+  color: #fff;
+}
+.selected-admin {
+  background-color: var(--color-purple);
+  color: #fff;
+}
+
+.student-form {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  /* flex-direction: column; */
+  align-items: center;
+  margin-right: 300px;
+}
+.admin-panel-box {
+  width: 200ppx;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.admin-panel-box button {
+  width: 200px;
+  height: 40px;
+  border: none;
+  color: #fff;
+  background-color: var(--color-light-blue2);
+}
+.admin-panel-box button:hover {
+  background-color: #2370f4;
+}
+.student-form-left {
+  border: 1px solid var(--color-border-grey);
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 200px;
+  margin: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.student-form-left button {
+  height: 50px;
+  width: 60%;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+.add-btn {
+  background: green;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+.update-btn {
+  background: var(--color-dark-blue1);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+.delete-btn {
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+.student-form-right {
+  border: 1px solid var(--color-border-grey);
+  width: 40%;
+  margin-left: 40px;
+  margin-top: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.form {
+  margin: 50px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.iput-title-box {
+  display: flex;
+  margin: 10px;
+}
+.input-title {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin-right: 40px;
+
+  width: 150px;
+}
+.iput-title-box select {
+  width: 150px;
+  background-color: #fff;
+  border: 1px solid var(grey);
+}
+.form button {
+  width: 150px;
+  height: 40px;
+}
+.btn-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.the-form {
+  height: auto;
+  width: auto;
+  border: 1px solid var(--color-border-grey);
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: 0px 1px 3px rgba(7, 156, 243, 0.1);
+  margin-bottom: 20px;
+  margin-left: 100px;
+}
+
+.admin-main{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
 }

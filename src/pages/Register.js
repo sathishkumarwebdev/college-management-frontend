@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 export default function Register() {
   const navigate = useNavigate();
   const formData = {
     firstname: "",
     lastname: "",
-    username: "",
+    emailaddress: "",
     password: "",
     role: "",
   };
@@ -19,16 +19,18 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { firstname, lastname, username, password } = userData;
-    const body = { firstname, lastname, username, password };
-    const res = await fetch("http://localhost:8082/account", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-
-    navigate("/login");
     try {
+      const { role, firstname, lastname, emailaddress, password } = userData;
+      const body = { role, firstname, lastname, emailaddress, password };
+      const res = await fetch("http://localhost:8080/user", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      console.log(res.message);
+
+      navigate("/login");
     } catch (err) {
       console.error(err.message);
     }
@@ -44,12 +46,6 @@ export default function Register() {
                 <div>
                   {" "}
                   <h2>Create account.</h2>
-                  <Link to={"/login"}>
-                    <p>
-                      Already have account? &nbsp;
-                      <span className="blue-italic">Log In</span>{" "}
-                    </p>
-                  </Link>
                 </div>
               </div>
             </div>
@@ -100,8 +96,8 @@ export default function Register() {
               <div className="general-input">
                 <input
                   type="text"
-                  name="username"
-                  placeholder="User Name"
+                  name="emailaddress"
+                  placeholder="email address"
                   className="text-input"
                   onChange={handleOnChangeData}
                 />
